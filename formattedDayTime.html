@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day and Time</title>
+</head>
+<body>
+<p id="block1"></p>
+<p  id="block2"><p>
+<script>
+    // get current day
+    var today = new Date();
+    var day = today.getDay();
+    var dayList = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var currentDay=  document.getElementById('block1');
+    currentDay.innerHTML="Today is:"+dayList[day];
+
+    //get current time
+    var hour = today.getHours();
+    var minute =  today.getMinutes();
+    var seconds =  today.getSeconds();
+    var AmPm = (hour>12) ?'AM':'PM';
+    // hour = (hour>=12) ? hour -12 :hour;
+    var currentDay=  document.getElementById('block2');
+    currentDay.innerHTML= "Current Time :"+ hour+" "+ AmPm + ":" + minute +":"+ seconds
+</script>
+</body>
+</html>
