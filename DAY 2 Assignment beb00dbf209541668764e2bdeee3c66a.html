@@ -1,0 +1,643 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>DAY 2-Assignment</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="beb00dbf-2095-4166-8764-e2bdeee3c66a" class="page sans"><header><h1 class="page-title">DAY 2-Assignment</h1></header><div class="page-body"><p id="f64221a1-00eb-497d-afc3-ff6545a9d00b" class="">
+</p><ol id="537e273b-1332-4ad9-9dc3-1d5aee27402d" class="numbered-list" start="1"><li><strong>Explore and explain the various methods in console function.</strong></li></ol><p id="3310ac68-646f-4fd7-894e-08e29e9707ef" class="">Ans-<div class="indented"><p id="f4667d01-f390-4502-833a-3219df53dab6" class=""><em><strong> a) console.log()</strong></em><strong> ⇒ </strong><div class="indented"><p id="0dcfae84-80a9-4675-bd32-1bc8cd009c3b" class="">It is used to log the output to the console. We can print any type inside the log(), be it as string,array,number,null,undefined,boolean,object etc.</p><p id="4c1f5e76-0b48-454d-b178-1c4dd088d572" class="">e.g- var a=&quot;Mahi&quot;;<div class="indented"><p id="f83a4250-0f54-4c6a-bf0a-f15055206d91" class="">console.log(a); // Mahi</p></div></p></div></p><p id="75ce541b-2027-468f-ad8b-66e826ed6b9e" class=""><em><strong> b) console.error() </strong></em>⇒<div class="indented"><p id="1a5dd6fe-05ee-470f-bbe7-e1413a3ad4a2" class="">It is used to log the error message to the console.</p><p id="7e1a9271-5f4c-410f-95ad-9a2346f08f39" class="">e.g-console.error(&quot;Oops...Error occurred!!!!&quot;);</p></div></p><p id="0a17d637-6d9a-41b9-b526-7e7ab82aa6d1" class=""><em><strong>c) console.warn() </strong></em>⇒<div class="indented"><p id="e8d854c2-32e2-4e7a-beee-ee6f1b635f6b" class="">It is used to log the warning message to the console.</p><p id="88e5017e-af5a-40f5-a564-782f1a57329a" class="">e.g-console.warn(&quot;Its a warning!!!&quot;);</p></div></p><p id="7314d077-afb6-4b4b-8d5e-0df2335f7f1e" class=""><em><strong>d) console.table()</strong></em>⇒<div class="indented"><p id="11605873-8a80-4e29-bb2d-6d3ed3d99aa2" class="">It is used to display the output in tabular format.</p><p id="a74f83c5-942b-4fb1-be99-5f21c4fcd925" class="">e.g- var obj = {name:&quot;ABC&quot;,age:25,location: &quot;Hyd&quot;};<div class="indented"><p id="38339a4d-9651-48b6-acfe-38910f3a0d2b" class="">console.table(obj);</p></div></p><p id="bb34a811-e33b-4565-9cd9-370e056933a7" class=""><em><strong>e) console.time() and console.timeEnd() ⇒</strong></em></p><p id="1387aab8-a0fc-4ccf-a7bb-67636107ea47" class="">It is used to count the amount of time taken to execute the block or a function.</p><p id="66063306-1d67-4fab-b58a-3689e17e5c4f" class="">The code inside that can be anything like, function,object,simple console etc</p><p id="29cb673d-abea-4ee9-87f2-9744a90c0831" class="">e.g - console.time(&#x27;timeTaken-&#x27;);<div class="indented"><p id="0dbd153e-3d38-4de2-bac9-360681298ffe" class="">console.time(&#x27;timeTaken-&#x27;);</p><p id="8b870112-3517-4c60-857e-903f277577f2" class="">function fnClick(){</p><p id="d1940aa3-b907-429d-a76d-2774d315abb5" class="">alert(&quot;Hello&quot;)</p><p id="4d5af2fe-6b10-4b04-bed5-c04b1f4db03f" class="">}</p><p id="e842746d-257c-4ff8-990b-8388b5275677" class="">fnClick();</p><p id="b63f82b7-9faf-4de8-9e08-a192150f9b43" class="">console.timeEnd(&#x27;timeTaken-&#x27;);</p></div></p><p id="548ce870-17b2-416b-b6a9-257487ded0db" class=""><em><strong>f) console.count() </strong></em>⇒</p><p id="cd8eafba-a86d-48ea-8392-707045d7602e" class="">This method is used to count the number that the function hit by this counting method.</p><p id="470bacfe-3d46-452b-bade-05a3d1a85a7a" class="">e.g- </p><p id="36a607cf-36aa-4599-a9ed-b4b4a8f304ea" class="">for(let i=0;i≤5;i++){</p><p id="14c11f8e-410d-4916-9fcd-17c4e2533d1b" class="">console.count(i);</p><p id="92cc937e-2996-410c-bb6d-3b4cb9183b6d" class="">}</p><p id="7d5893f7-91aa-493b-90ef-cbc71ba45a30" class=""><em><strong>g) console.group() and console.groupEnd()</strong></em> ⇒</p><p id="d7eef19f-4045-4913-8b0c-741d6a5a9588" class="">It is used to group the contents in separate block.</p><p id="8db39c5b-4c7d-4566-b61e-6ccc1004670c" class="">e.g - console.group(&quot;Block1&quot;);<div class="indented"><p id="38e941ad-96e2-4035-b1c2-ff6849c1050a" class="">       console.log(&quot;hey Hello....!!&quot;);<div class="indented"><p id="86177fca-5715-4668-bdb7-e568b4b874cc" class="">  console.error(&quot;Oops...error occurred!!!&quot;);</p><p id="ed368993-35b8-4e05-ac5a-8a1097f68a5d" class="">  console.warn(&quot;This is warning message!!!!&quot;);</p></div></p><p id="000d575e-2f18-4a9d-9322-38766cd5a0f1" class="">  console.groupEnd(&quot;Block1&quot;);</p><p id="138d90b7-5f77-4a0b-9dca-81e770c0a8dd" class="">console.log(&quot;Block2&quot;);</p></div></p><p id="b1c704c9-d988-498f-a0c9-6cd0fa6efe94" class=""><em><strong>h) console.clear()</strong></em> ⇒</p><p id="25787f4b-e032-4c98-828d-05020098b3a0" class="">It is used to clear the console.</p><p id="3bd679a3-3820-4ae5-ad67-368d6e9580a7" class="">e.g- console.clear() </p><p id="75d1e657-fe48-466e-9615-98064c51ba64" class="">
+</p><p id="eafa7603-6405-4ca5-9819-e0b4d9159e02" class="">
+</p></div></p></div></p><p id="e2ab10f0-72b3-4da5-aa9a-958abb146565" class=""><strong>Q.2 - Write the difference between var, let and const with code example.</strong><div class="indented"><p id="22da64cf-8131-4738-b697-96305d2a7439" class=""><strong><em>a) var</em></strong><strong> </strong>- Variable declared with <em><strong>var </strong></em>keyword are function and hoisted at the top within its scope</p><p id="18c9f129-00e7-440d-8f30-5f8ff8e6e652" class="">e.g - </p><p id="f9bc1571-cd85-46c5-a958-4cc369b3563c" class="">for(var i = 0; i &lt; 5; i++) { console.log(i); // 0,1,2,3,4
+}
+console.log(i); // 5</p><p id="15389364-9961-48f8-8852-ba05140f01e4" class=""><strong><em>b) let </em></strong>- Variable declared with <em><strong>let</strong></em> keyword are block scoped i.e <strong>{ }</strong> and can not be hoisted at the top within its scope</p><p id="bef5ab53-f4b3-4590-bd97-1c508c8ef72b" class="">e.g - </p><p id="e1470bf0-5dea-4dcb-b44c-9e38e01db3ae" class="">for(let i = 0; i &lt; 5; i++) { </p><p id="ca87d668-8dce-4da7-9d8a-a1de10e0ba89" class="">console.log(i);  // 0,1,2,3,4
+}
+console.log(i); // undefined</p><p id="062c4f7f-0a89-4e75-8d9e-b495b4b47c7f" class=""><em><strong>c) const</strong></em>- Variable declared with <em><strong>const</strong></em> keyword are block-scoped but it can be read only, we can not reassign new value to them.</p><p id="ca67c4de-1433-4a48-b504-6d2aa8764aaa" class="">e.g. <strong>1</strong>. const PI = 3.14;<div class="indented"><p id="0791b5da-d8e2-457e-ab13-11049bea6596" class="">console.log(PI) // 3.14</p><p id="f1b02bf3-728b-4f72-9dbc-b245871d7c13" class="">PI =10; // error</p><p id="096d4b52-6aec-4de9-85db-1eb05d001121" class=""><strong>2</strong>. However, We can still reassign value of object properties and array elements.</p><p id="336702dc-db05-464b-b4a4-c6f0c754704d" class="">     const obj = {name:&quot;abc&quot;,age:25,location:&quot;Hyd&quot;}<div class="indented"><p id="aa8d1905-e117-43e8-b16e-102d3b6816ce" class=""><a href="http://obj.name">obj.name</a> = &quot;def&quot;; </p><p id="8d8c99b0-bb3e-46f9-b523-d46b4fdebf5d" class="">console.log(obj); //  {name: &quot;def&quot;,age:25,location:&quot;Hyd&quot;}</p><p id="c778d690-72d7-4f4f-b593-61d94720fd2c" class="">
+</p></div></p><p id="0d63abb1-5253-49c4-919d-abc45e19cb3f" class=""><em><strong>Q.3- Write a brief intro on available data types in javascript </strong></em></p><p id="61a6cdf0-1a0c-4eea-8fd3-6bc519060e7c" class=""><em><strong>A] Primitive data types</strong></em> ⇒</p><p id="21a2e365-3ddc-4bdf-a16b-b5e7b490240e" class="">1.<strong>Number data types : </strong></p><ul id="83f03f3b-2e26-4616-9ac3-a79699e75384" class="bulleted-list"><li>The number data type is used to represent positive or negative numbers with or without decimal place, or numbers written using exponential notation.</li></ul><ul id="8ce9c7e6-b140-435a-921e-eac2e93b0843" class="bulleted-list"><li>e.g. var num = 1234;</li></ul><p id="9ffe23c0-eb82-40b3-b0e1-fbc900e82cb0" class=""><strong>2. String data types : </strong><div class="indented"><ul id="3f52d40b-ed4b-4123-b851-0554ade728dd" class="bulleted-list"><li>The string data type is used to represent textual data. Strings are created using single or    double quotes surrounding one or more characters.</li></ul><ul id="2a6086f7-a30b-4c96-a2cd-e6b90618ba3c" class="bulleted-list"><li>e.g. var a = &quot;Hello..!&quot;</li></ul></div></p><p id="cc73b931-fc11-4ca5-914e-5658b0331aaf" class=""> <strong>3. Boolean data types :</strong></p><ul id="eeab49a9-71a1-49e7-9d35-c65233f11213" class="bulleted-list"><li> The Boolean data type can hold only two values: true or false.</li></ul><ul id="7675db34-aefd-4654-b871-2dfd3bdc83fb" class="bulleted-list"><li>e.g. var isShow = true;</li></ul><p id="025e6740-1335-441f-b386-4aad87b13061" class=""><strong>4. undefined data types :</strong></p><ul id="a817f6ae-0f27-429e-a780-62de5fec2e76" class="bulleted-list"><li>  If a variable has been declared, but has not been assigned a value, has the value undefined.</li></ul><ul id="1a195dd7-a53a-46b6-a9f0-3071a4d2c853" class="bulleted-list"><li>e.g. var a;
+      var b = &quot;Hello World!&quot;
+      alert(a) // Output: undefined
+      alert(b) // Output: Hello World!</li></ul><p id="64d81d45-b682-40dd-a69a-faad197e0b6c" class=""><strong>5. null data types:</strong></p><ul id="e605d420-d19d-4491-819a-3c8045989da5" class="bulleted-list"><li> A null value means that there is no value. It is not equivalent to an empty string (&quot;&quot;) or 0, it is simply nothing.</li></ul><ul id="bc9cec72-5b5a-419a-a5e0-92ff56df24be" class="bulleted-list"><li>e.g.  var a = null;
+       alert(a); // Output: null
+       var b = &quot;Hello World!&quot;
+      alert(b); // Output: Hello World!
+      b = null;
+     alert(b) // Output: null</li></ul><ul id="1302e67c-98fd-4b1b-a805-75705f628b31" class="bulleted-list"><li></li></ul><p id="7ec0c36c-d251-4a71-980a-f11cbb48f3b8" class="">6<strong>. typeof data types :</strong></p><ul id="082e25fc-2fe8-46ea-8456-2798bbbfd920" class="bulleted-list"><li>The typeof operator can be used to find out what type of data a variable or operand contains. </li></ul><ul id="2804aaf6-ee64-46c8-a7ac-cdfad1fab808" class="bulleted-list"><li>var a = 123<p id="cd49ad40-ae5f-4d18-b1f8-31fffa737cfc" class="">typeof a   // number </p></li></ul><p id="b99f1dc5-2bcb-4d03-b348-4e1fc6ab361a" class="">B]<em><strong> Non-Primitive data types</strong></em> ⇒</p><p id="83e5c076-3154-4d83-a5f4-9d494e1b0270" class="">7<strong>. object data types:</strong></p><ul id="a675060a-5214-4e85-873a-7bcf95ddd83f" class="bulleted-list"><li>The object is a complex data type that allows you to store collections of data.</li></ul><ul id="3b293d0a-a2f5-4f61-92e1-643d918f0a67" class="bulleted-list"><li>e.g.  var car = { </li></ul><p id="8802f97a-75ab-4cda-996d-5eaf46e5f64f" class="">             &quot;modal&quot;: &quot;BMW X3&quot;,</p><p id="38295c4f-204a-42b4-bf49-a5533aa59271" class="">              &quot;color&quot;: &quot;white&quot;,</p><p id="08f82f74-725f-4066-8f3e-4a1eeb5fdcdc" class="">             &quot;doors&quot;: 5</p><p id="04e3b806-967c-46e5-aaf8-156a71d1d7d2" class="">}</p><p id="a952639b-7278-4458-9340-76a17419fe52" class=""> 8<strong>. array data types:</strong></p><ul id="777df821-fdb1-42b4-bcf1-18b1b00b06ab" class="bulleted-list"><li> An array is a type of object used for storing multiple values in single variable.</li></ul><ul id="461bc40c-9482-453a-b25d-8985dfe712d6" class="bulleted-list"><li>e.g. var colors = [&quot;Red&quot;, &quot;Yellow&quot;, &quot;Green&quot;, &quot;Orange&quot;];</li></ul><p id="36134e8b-776d-460f-a31d-e28d2e1d4093" class="">9<strong>. function data types:</strong></p><ul id="c116c227-5453-4e62-8ccb-53795074d91d" class="bulleted-list"><li> The function is callable object that executes a block of code. Since functions are objects, so it is possible to assign them to variables.</li></ul><ul id="e52ec954-d97b-471f-9914-b6b48e1b71e5" class="bulleted-list"><li>e.g. var greeting = function(){ <p id="d802e1fb-d555-4656-8a6f-dd29e4567b8e" class="">       return &quot;Hello World!&quot;;
+      }
+      alert(typeof greeting) 
+      alert(greeting());</p></li></ul><p id="1c653cda-0bad-485d-a0f1-b364cb692585" class=""> </p><p id="752e09f1-cbf3-453a-a148-67f8c5ce0e0c" class="">
+</p></div></p><p id="af8bd654-069a-4d9f-b2c2-d3bc50e2e220" class="">
+</p></div></p></div></article></body></html>
